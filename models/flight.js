@@ -25,7 +25,6 @@ const flightSchema = new Schema({
   },
   inOperation: {
     type: Boolean,
-    default: true,
   }, 
 }, { 
   timestamps: true
