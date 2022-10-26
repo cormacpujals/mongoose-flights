@@ -22,6 +22,7 @@
         <!-- finish the ternary expression to display
           'Yes' or 'Nope' --> 
         <td><%= f.inOperation ? 'Yes' : 'Nope' %></td>
+        <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
       </tr>
       <!-- Close the forEach using EJS here -->
       <% }); %>
