@@ -2,17 +2,14 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const reviewSchema = new Schema({
-  content: {
+const destinationSchema = new Schema({
+  airport: {
     type: String,
-    required: true,
+    enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SFO'],
   },
-  rating: {
-    type: Number,
-    min: 0,
-    max: 5,
-    default: 5,
-  }
+  arrival: {
+    type: Date,
+  },
 }, {
   timestamps: true
 });
@@ -41,7 +38,7 @@ const flightSchema = new Schema({
   inOperation: {
     type: Boolean,
   }, 
-  reviews: [reviewSchema],
+  destinations: [destinationSchema],
 }, { 
   timestamps: true
 });

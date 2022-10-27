@@ -10,45 +10,46 @@
   <div>Operation Status: </div>
   <div><%= flight.inOperation ? 'Yes' : 'Nope' %></div>
 </section>
- 
-<h2>Reviews</h2>
-<form id="add-review-form" method="POST"
-  action="/flights/<%= flight._id %>/reviews">
-  <label>Review:</label>
-  <textarea name="content"></textarea>
-  <label>Rating:</label>
-  <select name="rating">
-    <option value="0">0</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5" selected>5</option>
-  </select>
-  <input type="submit" value="Add Review">
+
+<h2>Add a Destination and Arrival Time:</h2>
+<form id="new-form" action="/flights/<%= flight._id %>/destinations" method="POST">
+
+  <label>Destination:
+    <select name="airport">
+      <option value="AUS">AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="DEN">DEN</option>
+      <option value="LAX">LAX</option>
+      <option value="SFO">SFO</option>
+    </select>
+  </label>
+
+  <label>Arrival Time:
+    <input type="datetime-local" name="arrival">
+  </label>
+
+  <button type="submit">Add Destination and Arrival Time</button>
 </form>
 
-<% if (flight.reviews.length) { %>
+<% if (flight.destinations.length) { %>
   <table>
     <thead>
       <tr>
-        <th>Date</th>
-        <th>Review</th>
-        <th>Rating</th>
+        <th>Destination</th>
+        <th>Arrival Time</th>
       </tr>
     </thead>
     <tbody>
-      <% flight.reviews.forEach(function(r) { %>
+      <% flight.destinations.forEach(function(f) { %>
         <tr>
-          <td><%= r.createdAt.toLocaleDateString() %></td>
-          <td><%= r.content %></td>
-          <td><%= r.rating %></td>
+          <td><%= f.airport %></td>
+          <td><%= f.arrival %></td>
         </tr>
       <% }); %>
     </tbody>
   </table>
 <% } else { %>
-  <h5>No Reviews Yet</h5>
+  <h5>No Destinations Yet</h5>
 <% } %>
 
 
