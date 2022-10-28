@@ -7,7 +7,7 @@
       <th>Airline</th>
       <th>Airport</th>
       <th>Flight Number</th>
-      <th>Departure Year</th>
+      <th>Departure Date</th>
       <th>In operation</th>
     </tr>
   </thead>
@@ -20,7 +20,7 @@
         <td><%= f.flightNo %></td>
         <td><%= f.departs %></td>
         <!-- finish the ternary expression to display
-          'Yes' or 'Nope' --> 
+          'Yes' or 'Nope' -->
         <td><%= f.inOperation ? 'Yes' : 'Nope' %></td>
         <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
       </tr>

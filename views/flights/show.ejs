@@ -55,5 +55,23 @@
   <h5>No Destinations Yet</h5>
 <% } %>
 
+<div>
+  <a href="/flights/<%= flight._id %>/tickets/new">Add Ticket</a>
+</div>
+
+<table>
+<tr>
+  <th>Tickets</th>
+  <% if (tickets.length) { %>
+    <% tickets.forEach(function(ticket){ %>
+      <td><%= ticket.seat %>, $<%= ticket.price %></td>
+    <% }) %>
+
+  <% } else { %>
+    <td>No Tickets Available</td>
+  <% } %>
+</tr>
+</table>
+
 
 <%- include('../partials/footer') %>
