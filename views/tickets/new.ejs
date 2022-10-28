@@ -2,6 +2,9 @@
 
 <h2>Enter a New Ticket</h2>
 <form id="new-form" action="/flights/<%= flight %>/tickets" method="POST">
+  <input type="hidden" value="<%= flight %>" name="flight">
+
+
   <label>Seat
     <input name="seat" required pattern="[A-F][1-9]\d?">
   </label>
