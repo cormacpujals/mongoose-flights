@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
   font-family: Helvetica;
   color: #424748;
@@ -39,7 +39,7 @@ body > main {
   overflow-y: scroll;
 }
 
-/* body > main h1:first-child {
+body > main h1:first-child {
   margin-bottom: 50px;
 }
 
